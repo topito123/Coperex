@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import authRoutes from "./src/auth/auth.routes.js";
 import companyRoutes from "./src/company/company.routes.js";
 import { createAdminIfNotExists } from "./src/auth/admin.setup.js";
+import reportRoutes from "./src/reports/report.routes.js";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/companies", companyRoutes);
+app.use("/api", reportRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
